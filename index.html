@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Share Average Calculator</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f8f8f8;
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            max-width: 600px;
+            margin: 50px auto;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        h1 {
+            text-align: center;
+            color: #333;
+            font-weight: bold;
+            margin-bottom: 20px;
+        }
+        form {
+            margin-bottom: 20px;
+        }
+        .input-box {
+            margin-bottom: 15px;
+        }
+        .input-box label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+            color: #555;
+            font-size: 16px;
+        }
+        .input-box input {
+            width: calc(100% - 12px);
+            padding: 8px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-size: 16px;
+        }
+        .calculate-button {
+            background-color: #4CAF50;
+            color: #fff;
+            padding: 12px 24px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            transition: background-color 0.3s;
+        }
+        .calculate-button:hover {
+            background-color: #45a049;
+        }
+        .result {
+            background-color: #f0f0f0;
+            padding: 20px;
+            border-radius: 5px;
+            font-size: 16px;
+            font-weight: bold;
+            text-align: center;
+        }
+        .result p {
+            margin: 0;
+            margin-bottom: 10px;
+        }
+        .result .blue-text {
+            color: #0066ff;
+        }
+        .result .green-text {
+            color: #009900;
+        }
+        .result hr {
+            border: 0;
+            height: 1px;
+            background: #ccc;
+            margin: 20px 0;
+        }
+        .result .stylish-text {
+            font-family: 'Pacifico', cursive;
+            font-size: 24px;
+            color: #ff6600;
+        }
+    </style>
+</head>
+<body>
+  <h1>📈 Share Average Calculator 📉</h1>
+        
+        <form id="shareForm">
+            <div class="input-box">
+                <label for="unit1">First Purchase - Unit:</label>
+                <input type="number" id="unit1" name="unit1" placeholder="Unit">
+            </div>
+            
+            <div class="input-box">
+                <label for="unit2">Second Purchase - Unit:</label>
+                <input type="number" id="unit2" name="unit2" placeholder="Unit">
+            </div>
+            
+            <div class="input-box">
+                <label for="price1">First Purchase - Price:</label>
+                <input type="number" id="price1" name="price1" placeholder="Price">
+            </div>
+            
+            <div class="input-box">
+                <label for="price2">Second Purchase - Price:</label>
+                <input type="number" id="price2" name="price2" placeholder="Price">
+            </div>
+            
+            <button type="button" class="calculate-button" onclick="calculate()">Calculate</button>
+        </form>
+        
+        <div id="result" class="result"></div>
+    </div>
+    
+    <script>
+        function calculate() {
+            var unit1 = parseFloat(document.getElementById("unit1").value);
+            var unit2 = parseFloat(document.getElementById("unit2").value);
+            var price1 = parseFloat(document.getElementById("price1").value);
+            var price2 = parseFloat(document.getElementById("price2").value);
+            
+            var totalInvestment1 = unit1 * price1;
+            var totalInvestment2 = unit2 * price2;
+            var totalUnits = unit1 + unit2;
+            var totalPrice = totalInvestment1 + totalInvestment2;
+            var averagePrice = totalPrice / totalUnits;
+            
+            // Display the result
+            document.getElementById("result").innerHTML = 
+            "<p class='stylish-text'>Result:</p>" +
+            "<hr>" +
+            "<p class='blue-text'><strong>Total amount invested in first purchase:</strong> ₹" + totalInvestment1.toFixed(2) + "</p>" +
+            "<p class='blue-text'><strong>Total amount invested in second purchase:</strong> ₹" + totalInvestment2.toFixed(2) + "</p>" +
+            "<hr>" +
+            "<p class='green-text'><strong>Total units:</strong> " + totalUnits.toFixed(2) + "</p>" +
+            "<p class='green-text'><strong>Average share price:</strong> ₹" + averagePrice.toFixed(2) + "</p>" +
+            "<p class='green-text'><strong>Total amount invested:</strong> ₹" + totalPrice.toFixed(2) + "</p>";
+        }
+    </script>
+</body>
+ <div class="container">
+        
+</html>
